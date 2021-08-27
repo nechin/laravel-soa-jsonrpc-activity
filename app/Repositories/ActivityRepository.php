@@ -46,7 +46,7 @@ class ActivityRepository
                 ->select(DB::raw("url, count(*) as visits, max(visit_date) as last_visit"))
                 ->where('landing_id', $landingId)
                 ->groupBy('url')
-                ->simplePaginate(2);
+                ->simplePaginate(20);
         } catch (Exception $exception) {
             Log::error($exception->getMessage());
             return null;
